@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">UdemyNumberComposition</string>
+    <string name="rules_game">Правила Игры</string>
+    <string name="ok">Понятно</string>
+    <string name="test_level">тестовый</string>
+    <string name="choice_level">Выберите уровень</string>
 </resources>
