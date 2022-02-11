@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".presentation.GameFragment">
+    tools:context=".presentation.game.GameFragment">
 
     <!-- TODO: Update blank fragment layout -->
 
@@ -69,7 +69,7 @@
         android:id="@+id/tv_answers_progress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="количество правильных ответов"
+        android:text="@string/progress_answers"
         android:layout_margin="16dp"
         app:layout_constraintVertical_chainStyle="spread"
         app:layout_constraintTop_toBottomOf="@+id/tv_left_number"
@@ -77,7 +77,7 @@
 
     <ProgressBar
         android:id="@+id/progress_bar"
-
+        style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:max="100"

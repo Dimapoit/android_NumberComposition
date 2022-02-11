@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".presentation.MainActivity"
-    android:name="com.dm_blinov.udemynumbercomposition.presentation.WelcomeFragment">
+    android:name="com.dm_blinov.udemynumbercomposition.presentation.welcome.WelcomeFragment">
 
 
 

@@ -1,14 +1,14 @@
-package com.dm_blinov.udemynumbercomposition.presentation
+package com.dm_blinov.udemynumbercomposition.presentation.ChooseLevel
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.FragmentActivity
 import com.dm_blinov.udemynumbercomposition.R
 import com.dm_blinov.udemynumbercomposition.databinding.FragmentChooseLevelBinding
 import com.dm_blinov.udemynumbercomposition.domain.entity.Level
+import com.dm_blinov.udemynumbercomposition.presentation.game.GameFragment
 import java.lang.RuntimeException
 
 

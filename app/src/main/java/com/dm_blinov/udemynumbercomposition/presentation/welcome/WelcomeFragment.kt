@@ -1,4 +1,4 @@
-package com.dm_blinov.udemynumbercomposition.presentation
+package com.dm_blinov.udemynumbercomposition.presentation.welcome
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.dm_blinov.udemynumbercomposition.R
 import com.dm_blinov.udemynumbercomposition.databinding.FragmentWelcomeBinding
+import com.dm_blinov.udemynumbercomposition.presentation.ChooseLevel.ChooseLevelFragment
 import java.lang.RuntimeException
 
 

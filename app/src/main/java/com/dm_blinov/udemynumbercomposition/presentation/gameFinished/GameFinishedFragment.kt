@@ -1,4 +1,4 @@
-package com.dm_blinov.udemynumbercomposition.presentation
+package com.dm_blinov.udemynumbercomposition.presentation.gameFinished
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -10,6 +10,7 @@ import androidx.fragment.app.FragmentManager
 import com.dm_blinov.udemynumbercomposition.R
 import com.dm_blinov.udemynumbercomposition.databinding.FragmentGameFinishedBinding
 import com.dm_blinov.udemynumbercomposition.domain.entity.GameResult
+import com.dm_blinov.udemynumbercomposition.presentation.game.GameFragment
 import java.lang.RuntimeException
 
 class GameFinishedFragment : Fragment() {
@@ -36,6 +37,7 @@ class GameFinishedFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        bindViews()
         binding.btnRetry.setOnClickListener {
             retryGame()
         }
@@ -48,13 +50,53 @@ class GameFinishedFragment : Fragment() {
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callBack)
     }
 
+    private fun bindViews() {
+        with(binding) {
+            emojiResult.setImageResource(getSmileResId())
+            tvRequiredAnswers.text = String.format(
+                getString(R.string.required_score),
+                gameResult.gameSettings.minCountOfRightAnswers
+            )
+            tvScoreAnswers.text = String.format(
+                getString(R.string.score_answers),
+                gameResult.countOfRightAnswers
+            )
+            tvRequiredPercentage.text = String.format(
+                getString(R.string.required_percentage),
+                gameResult.gameSettings.minPercentOfRightAnswers
+            )
+            tvScorePercentage.text = String.format(
+                getString(R.string.score_percentage),
+                getPercentOfRightAnswers()
+            )
+        }
+
+
+    }
+
+    private fun getPercentOfRightAnswers(): Int {
+        return if (gameResult.countOfQuestions == 0) {
+            0
+        } else {
+            gameResult.countOfRightAnswers/ gameResult.countOfQuestions * 100
+        }
+    }
+
+    private fun getSmileResId(): Int {
+        return if (gameResult.winner) {
+            R.drawable.smile
+        } else {
+            R.drawable.sad_smile
+        }
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
 
     private fun parseArgs() {
-        gameResult = requireArguments().getSerializable(GAME_RESULT) as GameResult
+        gameResult = requireArguments().getParcelable<GameResult>(GAME_RESULT) as GameResult
     }
 
     //Метод перехода на экран выбора сложности
@@ -70,7 +112,7 @@ class GameFinishedFragment : Fragment() {
         fun newInstance(gameResult: GameResult): GameFinishedFragment {
             return GameFinishedFragment().apply {
                 arguments = Bundle().apply {
-                    putSerializable(GAME_RESULT, gameResult)
+                    putParcelable(GAME_RESULT, gameResult)
                 }
             }
         }

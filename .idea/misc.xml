@@ -5,6 +5,7 @@
       <map>
         <entry key="..\:/Android/UdemyNumberComposition/app/src/main/res/drawable/ic_launcher_background.xml" value="0.125" />
         <entry key="..\:/Android/UdemyNumberComposition/app/src/main/res/layout/fragment_choose_level.xml" value="0.15353260869565216" />
+        <entry key="..\:/Android/UdemyNumberComposition/app/src/main/res/layout/fragment_game.xml" value="0.15830800405268491" />
         <entry key="..\:/Android/UdemyNumberComposition/app/src/main/res/layout/fragment_game_finished.xml" value="0.33" />
         <entry key="..\:/Android/UdemyNumberComposition/app/src/main/res/layout/fragment_welcome.xml" value="0.1" />
       </map>

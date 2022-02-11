@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.GameFinishedFragment">
+    tools:context=".presentation.gameFinished.GameFinishedFragment">
 
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/emojiResult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="48dp"
@@ -22,7 +22,7 @@
         android:id="@+id/tv_required_answers"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Необходимое количество правильных ответов: %"
+        android:text="@string/required_score"
         android:textSize="18sp"
         android:layout_margin="18dp"
         app:layout_constraintBottom_toTopOf="@+id/tv_score_answers"
@@ -37,7 +37,7 @@
         android:id="@+id/tv_score_answers"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Ваш счет: %"
+        android:text="@string/score_answers"
         android:layout_margin="8dp"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/tv_required_percentage"
@@ -50,7 +50,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:text="Необходимый процент правильных ответов: %"
+        android:text="@string/required_percentage"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/tv_score_percentage"
         app:layout_constraintEnd_toEndOf="@+id/tv_required_answers"
@@ -63,7 +63,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:text="Процент правильных ответов: %"
+        android:text="@string/score_percentage"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/tv_required_answers"
@@ -75,7 +75,7 @@
         android:id="@+id/btn_retry"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Попробовать снова"
+        android:text="@string/retry"
         app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
