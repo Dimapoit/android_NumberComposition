@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.FragmentManager
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.dm_blinov.udemynumbercomposition.R
 import com.dm_blinov.udemynumbercomposition.databinding.FragmentGameFinishedBinding
 import com.dm_blinov.udemynumbercomposition.domain.entity.GameResult
@@ -21,9 +23,11 @@ class GameFinishedFragment : Fragment() {
 
     private lateinit var gameResult: GameResult
 
+    private val args by navArgs<GameFinishedFragmentArgs>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        parseArgs()
+        gameResult = args.gameResult
     }
 
     override fun onCreateView(
@@ -41,14 +45,15 @@ class GameFinishedFragment : Fragment() {
         binding.btnRetry.setOnClickListener {
             retryGame()
         }
+        //FragmentNavigation
         //Переход на экран выбора сложности при нажатии кнопки назад
-        val callBack = object : OnBackPressedCallback(true) {
+        /* val callBack = object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
                 retryGame()
             }
         }
-        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callBack)
-    }
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callBack) */
+}
 
     private fun bindViews() {
         with(binding) {
@@ -95,18 +100,19 @@ class GameFinishedFragment : Fragment() {
         _binding = null
     }
 
-    private fun parseArgs() {
-        gameResult = requireArguments().getParcelable<GameResult>(GAME_RESULT) as GameResult
-    }
-
     //Метод перехода на экран выбора сложности
     private fun retryGame() {
-        requireActivity().supportFragmentManager
-            .popBackStack(GameFragment.NAME, FragmentManager.POP_BACK_STACK_INCLUSIVE)
+        //FragmentNavigation
+//        requireActivity().supportFragmentManager
+//            .popBackStack(GameFragment.NAME, FragmentManager.POP_BACK_STACK_INCLUSIVE)
+        //JetpackNavigation
+        findNavController().popBackStack()
+
+
     }
 
     companion object {
-        private const val
+        const val
                 GAME_RESULT = "GAME_RESULT"
 
         fun newInstance(gameResult: GameResult): GameFinishedFragment {

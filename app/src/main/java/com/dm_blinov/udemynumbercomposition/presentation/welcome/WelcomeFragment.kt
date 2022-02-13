@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.dm_blinov.udemynumbercomposition.R
 import com.dm_blinov.udemynumbercomposition.databinding.FragmentWelcomeBinding
 import com.dm_blinov.udemynumbercomposition.presentation.ChooseLevel.ChooseLevelFragment
@@ -34,11 +35,14 @@ private var _binding: FragmentWelcomeBinding? = null
     }
 
     private fun launchChooseLevelFragment(){
-        requireActivity().supportFragmentManager
-            .beginTransaction()
-            .replace(R.id.main_container, ChooseLevelFragment.newInstance())
-            .addToBackStack(ChooseLevelFragment.NAME)
-            .commit()
+        //FragmentNavigation
+//        requireActivity().supportFragmentManager
+////            .beginTransaction()
+////            .replace(R.id.main_container, ChooseLevelFragment.newInstance())
+////            .addToBackStack(ChooseLevelFragment.NAME)
+////            .commit()
+        //JetpackNavigation
+        findNavController().navigate(R.id.action_welcomeFragment_to_chooseLevelFragment)
     }
 
     override fun onDestroyView() {
