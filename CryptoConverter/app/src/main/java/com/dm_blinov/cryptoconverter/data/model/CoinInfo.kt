@@ -1,4 +1,4 @@
-package com.dm_blinov.cryptoconverter.pojo
+package com.dm_blinov.cryptoconverter.data.model
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName

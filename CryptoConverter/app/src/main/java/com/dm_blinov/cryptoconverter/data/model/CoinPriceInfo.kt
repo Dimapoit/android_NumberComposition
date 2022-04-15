@@ -1,8 +1,8 @@
-package com.dm_blinov.cryptoconverter.pojo
+package com.dm_blinov.cryptoconverter.data.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.dm_blinov.cryptoconverter.api.ApiFactory.BASE_IMAGE_URL
+import com.dm_blinov.cryptoconverter.data.api.ApiFactory.BASE_IMAGE_URL
 import com.dm_blinov.cryptoconverter.utils.convertTimestampToTime
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
